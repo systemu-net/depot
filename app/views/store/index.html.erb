@@ -13,11 +13,9 @@
   <ul>
     <% @products.each do |product| %>
       <li class="flex mb-6">
-        <%= image_tag(product.image_url, class: 'object-contain w-40 h-48 shodow mr-60') %>
-
-        <div>
+        <%= image_tag(product.image_url, class: 'object-contain w-40 h-48 shadow mr-6') %>
+        <div class="ml-15">
           <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
-
           <p>
             <%= sanitize(product.description) %>
           </p>
