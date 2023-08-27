@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tailwind/index'
   resources :line_items
   resources :carts
   root 'store#index', as: 'store_index'
