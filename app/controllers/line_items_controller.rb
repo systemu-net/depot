@@ -26,12 +26,14 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
+    @notice = "Line item was successfully created."
 
     respond_to do |format|
       if @line_item.save
         update_counter
         format.html { redirect_to cart_url(@line_item.cart) }
         format.json { render :show, status: :created, location: @line_item }
+        format.turbo_stream { @current_item = @line_item }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
