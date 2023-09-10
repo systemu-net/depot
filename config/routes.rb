@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   get 'tailwind/index'
   resources :line_items
   resources :carts
